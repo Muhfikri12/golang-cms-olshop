@@ -13,6 +13,7 @@ func main() {
 	mux.HandleFunc("/create-book", handler.FormCreateBook)
 	mux.HandleFunc("/books", handler.CreateBook)
 	mux.HandleFunc("/books-list", handler.ItemsList)
+	mux.HandleFunc("/transaction-list", handler.Transaction)
 
 	fmt.Println("Server running on port 8080")
 	http.ListenAndServe(":8080", mux)

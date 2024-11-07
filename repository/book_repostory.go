@@ -58,3 +58,15 @@ func (r *BookRepoDB) BookList() (*[]model.Books, error) {
 
 	return &items, nil
 }
+
+func (r *BookRepoDB) UpdateBook(id int, item *model.Books) error {
+
+	query := `UPDATE items SET name=$1, category=$2, author=$3, price=$4, discount=$5, cover=$6, pdf=$7 WHERE id=$8`
+	_, err := r.DB.Exec(query, item.Name, item.Category, item.Author, item.Price, item.Discount, item.Cover, item.Pdf, id)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

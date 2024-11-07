@@ -29,3 +29,13 @@ func (bs *BookService) ShowALlList() (*[]model.Books, error) {
 
 	return items, nil
 }
+
+func (bs *BookService) UpdateBook(id int, item *model.Books) error {
+	
+	if err := bs.RepoBook.UpdateBook(id, item); err != nil {
+		return err
+	}
+
+	return nil
+}
+
