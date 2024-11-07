@@ -1,23 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Buku</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Tambah Buku Baru</h1>
-    </header>
-
+{{ define "add-book" }}
+{{ template "layout" }}
     <section id="add-book">
-        <form action="#">
-            <label for="bookName">Nama Buku:</label>
-            <input type="text" id="bookName" name="bookName" required>
+        <form action="/books" method="post" enctype="multipart/form-data">
+            <label for="name">Nama Buku:</label>
+            <input type="text" id="name" name="name" required>
 
-            <label for="bookType">Jenis Buku:</label>
-            <input type="text" id="bookType" name="bookType" required>
+            <label for="category">Jenis Buku:</label>
+            <input type="text" id="category" name="category" required>
 
             <label for="author">Pengarang:</label>
             <input type="text" id="author" name="author" required>
@@ -37,5 +26,5 @@
             <button type="submit">Simpan Buku</button>
         </form>
     </section>
-</body>
-</html>
+    {{ template "footer" }}
+    {{ end }}
